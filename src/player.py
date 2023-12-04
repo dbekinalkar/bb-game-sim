@@ -1,4 +1,5 @@
 import random
+from enum import Enum
 
 class Player:
     def __init__(
