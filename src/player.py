@@ -36,6 +36,27 @@ class Player:
         self.playstyle = playstyle
         self.perk = perk
 
+        self.overall = self.calculate_overall()
+
+
+    def calculate_overall(self):
+        overall = (
+            self.speed
+            + self.shooting
+            + self.finishing
+            + self.passing
+            + self.handling
+            + self.perimeter_defense
+            + self.rim_protection
+            + self.rebounding
+            + self.stealing
+        ) / 9  # Divide by the number of attributes for an average
+
+        return overall
+    
+    def __str__(self):
+        return f"Player - Position: {self.position.value}, Height: {self.height}, Weight: {self.weight}, " \
+               f"Overall: {self.overall:.2f}, Playstyle: {self.playstyle.value}, Perk: {self.perk.value}"
 
 
 class Position(Enum):
